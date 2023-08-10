@@ -56,7 +56,7 @@ shadowJar {
 	manifest {
 		attributes 'Implementation-Title': 'LegacyFabricInstaller',
 				'Implementation-Version': project.version,
-				'Main-Class': 'net.fabricmc.installer.Main'
+				'Main-Class': 'net.legacyfabric.installer.Main'
 	}
 
 	minimize()
@@ -68,7 +68,7 @@ task serverJar(type: com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar)
 	manifest {
 		attributes 'Implementation-Title': 'LegacyFabricInstaller',
 				'Implementation-Version': project.version,
-				'Main-Class': 'net.fabricmc.installer.ServerLauncher'
+				'Main-Class': 'net.legacyfabric.installer.ServerLauncher'
 	}
 
 	minimize()
