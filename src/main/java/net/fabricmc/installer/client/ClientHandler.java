@@ -212,7 +212,7 @@ public class ClientHandler extends Handler {
 	}
 
 	@Override
-	public void setupPane2(JPanel pane, GridBagConstraints c, InstallerGui installerGui) {
+	public void setupPane(JPanel pane, GridBagConstraints c, InstallerGui installerGui) {
 		addRow(pane, c, null,
 				createProfile = new JCheckBox(Utils.BUNDLE.getString("option.create.profile"), true));
 

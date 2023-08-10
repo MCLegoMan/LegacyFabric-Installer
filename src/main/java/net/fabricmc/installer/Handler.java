@@ -75,11 +75,7 @@ public abstract class Handler implements InstallerProgress {
 	public abstract void installCli(ArgumentParser args) throws Exception;
 
 	public abstract String cliHelp();
-
-	//this isnt great, but works
-	public void setupPane1(JPanel pane, GridBagConstraints c, InstallerGui installerGui) { }
-
-	public void setupPane2(JPanel pane, GridBagConstraints c, InstallerGui installerGui) { }
+	public void setupPane(JPanel pane, GridBagConstraints c, InstallerGui installerGui) { }
 
 	public JPanel makePanel(InstallerGui installerGui) {
 		pane = new JPanel(new GridBagLayout());
@@ -89,7 +85,7 @@ public abstract class Handler implements InstallerProgress {
 		c.insets = new Insets(VERTICAL_SPACING, HORIZONTAL_SPACING, VERTICAL_SPACING, HORIZONTAL_SPACING);
 		c.gridx = c.gridy = 0;
 
-		setupPane1(pane, c, installerGui);
+		setupPane(pane, c, installerGui);
 
 		addRow(pane, c, "prompt.game.version",
 				gameVersionComboBox = new JComboBox<>(),
@@ -115,8 +111,6 @@ public abstract class Handler implements InstallerProgress {
 		selectFolderButton.setText("...");
 		selectFolderButton.setPreferredSize(new Dimension(installLocation.getPreferredSize().height, installLocation.getPreferredSize().height));
 		selectFolderButton.addActionListener(e -> InstallerGui.selectInstallLocation(() -> installLocation.getText(), s -> installLocation.setText(s)));
-
-		setupPane2(pane, c, installerGui);
 
 		addRow(pane, c, null,
 				statusLabel = new JLabel());
